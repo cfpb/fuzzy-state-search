@@ -1,46 +1,29 @@
-[![Build Status](https://travis-ci.org/cfpb/loan-calc.svg?branch=master)](https://travis-ci.org/cfpb/loan-calc)
+[![Build Status](https://travis-ci.org/cfpb/fuzzy-state-search.svg?branch=master)](https://travis-ci.org/cfpb/fuzzy-state-search)
 
-Quickly calculate monthly payments and the total amount of interest paid for a fixed rate loan.
+Get the U.S. state closest to the user's position. Compares coordinates from a [`Position` object](https://developer.mozilla.org/en-US/docs/Web/API/Position) to the centroid of each U.S. state. Favors speed over accuracy. Locations near a state's border may return an incorrect, neighboring state.
 
 ## Installation
 
 First install [node.js](http://nodejs.org/). Then:
 
 ```sh
-npm install loan-calc --save
+npm install fuzzy-state-search --save
 ```
 
 ## Usage
 
-Require the module and pass the amount of the loan, annual rate, and length of loan in months.
+[Require](http://browserify.org/) the module and pass it a [`Position` object](https://developer.mozilla.org/en-US/docs/Web/API/Position):
 
 ```javascript
-var LoanCalc = require('loan-calc');
+var getState = require('fuzzy-state-search');
 
-LoanCalc.paymentCalc({
-    amount: 200000,
-    rate: 5,
-    termMonths: 180
-});
-// returns 1581.59
+function logState( pos ){
+  var state = getState( pos );
+  console.log( 'User lives in ' + state );
+};
 
-LoanCalc.totalInterest({
-    amount: 200000,
-    rate: 5,
-    termMonths: 360
-});
-// returns 186511.57
-```
-
-You can also pass the loan amount as a US currency formatted string:
-
-```javascript
-LoanCalc.paymentCalc({
-    amount: '$200,000',
-    rate: 5,
-    termMonths: 180
-});
-// returns 1581.59
+// Get their coordinates using the HTML5 gelocation API.
+navigator.geolocation.getCurrentPosition( logState );
 ```
 
 ## Contributing

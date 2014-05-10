@@ -1,7 +1,7 @@
 {
   "name": "fuzzy-state-search",
   "version": "0.1.0",
-  "description": "Get the U.S. state closest to the user's location",
+  "description": "Get the U.S. state closest to the user's location.",
   "main": "index.js",
   "scripts": {
     "test": "nodeunit test/test.js"
@@ -11,8 +11,9 @@
     "url": "git://github.com/cfpb/fuzzy-state-search.git"
   },
   "keywords": [
+    "geocode",
     "geolocation",
-    "geolocate"
+    "browserify"
   ],
   "author": "CFPB",
   "license": "Public Domain",
