@@ -22,7 +22,7 @@ function logState( pos ){
   console.log( 'User lives in ' + state );
 };
 
-// Get their coordinates using the HTML5 gelocation API.
+// Get their coordinates using the HTML5 geolocation API.
 navigator.geolocation.getCurrentPosition( logState );
 ```
 
