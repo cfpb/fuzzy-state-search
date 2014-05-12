@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/cfpb/fuzzy-state-search.svg?branch=master)](https://travis-ci.org/cfpb/fuzzy-state-search)
 
-Get the U.S. state closest to the user's position. Compares coordinates from a [`Position` object](https://developer.mozilla.org/en-US/docs/Web/API/Position) to the centroid of each U.S. state. Favors speed over accuracy. Locations near a state's border may return an incorrect, neighboring state.
+Get the U.S. state closest to the user's position. Compares lat/lon coordinates from a [`Position` object](https://developer.mozilla.org/en-US/docs/Web/API/Position) to the centroid of each U.S. state. Favors speed over accuracy.
+
+Locations near a state's border may return an incorrect, neighboring state. If accuracy is important, you should use a third-party [reverse geocoding](http://en.wikipedia.org/wiki/Reverse_geocoding) API (e.g. [Google's](https://developers.google.com/maps/documentation/geocoding/?csw=1#ReverseGeocoding)).
 
 ## Installation
 
